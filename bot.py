@@ -9,11 +9,9 @@ Bot = Client(
     api_hash = os.environ.get("API_HASH")
 )
 
-# © chat.openai.com
+#Start command
 @Bot.on_message(filters.command("start"))
-def start_command_handler(client: Client, message: Message):
-    client.send_message(message.chat.id, "Hello! I'm your Telegram bot.")
-   
- 
+async def start_command(client, message):
+	await message.reply_text("Hi :) how is it going?")
 
 Bot.run()
